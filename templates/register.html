@@ -1,0 +1,561 @@
+<!-- using template inheritence-->
+
+{% extends 'dummy.html' %}
+{% load static %}
+
+<!-- to override the block method in order to define child content-->
+{% block title %}
+  <title>Register</title>
+{% endblock %}
+{% block body_block %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Job Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body{
+            font-family: "Comic Sans MS", sans-serif;
+            background-image: url("{% static 'images/background 1.jpg' %}");
+            background-attachment: fixed;
+            color: white;
+        }
+        h1{
+            text-align: center;
+            font-family: font-family:"Times New Roman";
+            font-size: 35px;
+            text-shadow: 0 0 5px darkblue ;
+        }
+        fieldset{
+            background-color: rgba(0,0,0,0.5);
+            border: 2px solid white;
+            padding: 12px;
+            margin: 15px;
+            border-radius: 0 20px 0 20px;
+            box-shadow: 0 0 10px black;
+        }
+        fieldset legend{
+            background-image: url("{% static 'images/background 2.webp' %}");
+            font-family: "Old English Text MT",sans-serif;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.808);
+            border-radius: 0 20px 0 20px;
+            box-shadow: 0 0 10px black;
+        }
+        table{
+            width: 100%;
+        }
+        table td{
+            font-size: 18px;
+            padding: 5px;
+        }
+        table th{
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="month"],
+        select{
+            font-size: 18px;
+            height: 35px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+        textarea{
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            width: 210px;
+        }
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        input[type="month"]:focus,
+        select:focus,
+        textarea:focus{
+            background-color: #cba483;
+            box-shadow: 0 0 10px darkred;
+        }
+        .button{
+            background-image: url("img/background 2.jpg");
+            font-family: "Old English Text MT",sans-serif;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: 2px solid white;
+            border-radius: 0 20px 0 20px;
+            box-shadow: 0 0 10px black;
+            color: black;
+            width: 150px;
+        }
+        .button:hover{
+            box-shadow: 0 0 10px white;
+            cursor: pointer;
+            color:grey;
+        }
+    </style>
+
+    <!-- Online Job Application form -->
+    <h1>Online Job Application Form</h1>
+
+    <form>
+
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>Middle Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>Last Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Father's Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>Mother's Name</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Current Address</td>
+                    <td>
+                        <textarea rows="4" cols="20"></textarea>
+                    </td>
+                    <td>Permanent Address</td>
+                    <td>
+                        <textarea rows="4" cols="20"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Numbers</td>
+                </tr>
+                <tr>
+                    <td>Landline Number</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>Mobile Number</td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td>Place Of Birth</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Select Gender</td>
+                    <td>
+                        <input type="radio" value="male" name="gender"> Male
+                    </td>
+                    <td>
+                        <input type="radio" value="female" name="gender"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Highest Qualification</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>Year of Passing</td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Languages Known</td>
+                    
+                    <td>
+                        <input type="checkbox" value="hindi"> Hindi
+                    </td>
+                    <td>
+                        <input type="checkbox" value="english"> English
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Select Your Hobbies</td>
+                    <td>
+                        <input type="checkbox" value="eating"> Eating
+                    </td>
+                    <td>
+                        <input type="checkbox" value="coding"> Coding
+                    </td>
+                    <td>
+                        <input type="checkbox" value="sleeping"> Sleeping
+                    </td>
+                </tr>
+                <tr>
+                    <td>About Yourself</td>
+                    <td colspan="4">
+                        <textarea rows="4" cols="80"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nationality</td>
+                    <td>
+                        <select>
+                            <option>American</option>
+                            <option>Indian</option>
+                            <option>Others</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Aadhar Card Number</td>
+                    <td>
+                        <input type="number">
+                    </td>
+                    <td>PANCARD Number</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Education Details -->
+        <fieldset>
+            <legend>Education Details</legend>
+            <table>
+                <tr>
+                    <th>SNO</th>
+                    <th>Qualification</th>
+                    <th>Institute / University</th>
+                    <th>Year of Passing</th>
+                    <th>Marks (%)</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="number">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Work Experience -->
+        <fieldset>
+            <legend>Work Experience</legend>
+            <table>
+                <tr>
+                    <th>SNO</th>
+                    <th>Company</th>
+                    <th>Work / Roles</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <textarea rows="5" cols="20"></textarea>
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                    <td>
+                        <input type="month">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Other Details -->
+        <fieldset>
+            <legend>Other Details</legend>
+            <table>
+                <tr>
+                    <td>JobType</td>
+                    <td>
+                        <input type="radio" name="jobtype" value="permanent"> Permanent
+                    </td>
+                    <td>
+                        <input type="radio" name="jobtype" value="contract"> Contract
+                    </td>
+                    <td>
+                        <input type="radio" name="jobtype" value="other"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date Of Joining</td>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td>Time Of Joining</td>
+                    <td>
+                        <input type="time">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Perferred Job Location</td>
+                    <td>
+                        <input type="radio" name="location" value="hyd"> Hyderabad
+                    </td>
+                    <td>
+                        <input type="radio" name="location" value="bang"> Bangalore
+                    </td>
+                    <td>
+                        <input type="radio" name="location" value="other"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Willing to Relocate to Hyderabad ?</td>
+                    <td>
+                        <input type="radio" name="relocate" value="yes"> YES
+                    </td>
+                    <td>
+                        <input type="radio" name="relocate" value="no"> NO
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <input type="checkbox">
+                        <span>Iam here declaring that all the above mentioned information is true as per my knowledge.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit" class="button">
+                    </td>
+                    <td>
+                        <input type="reset" value="Reset" class="button">
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <footer
+class="text-center text-lg-start text-white"
+style="background-color: #525c72"
+>
+<!-- Grid container -->
+<div class="container p-4 pb-0">
+<!-- Section: Links -->
+<section class="">
+<!--Grid row-->
+<div class="row">
+<!-- Grid column -->
+<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+  <h6 class="text-uppercase mb-4 font-weight-bold">
+    travel around
+  </h6>
+  <p>
+    Can we just skip to the part of my life where I travel the world?
+  </p>
+</div>
+<!-- Grid column -->
+
+<hr class="w-100 clearfix d-md-none" />
+
+<!-- Grid column -->
+<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+  <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+  <p>
+    <a class="text-white">About Us</a>
+  </p>
+  <p>
+    <a class="text-white">Home</a>
+  </p>
+  <p>
+    <a class="text-white">Contact Us</a>
+  </p>
+  <p>
+    <a class="text-white">Register</a>
+  </p>
+</div>
+<!-- Grid column -->
+
+<hr class="w-100 clearfix d-md-none" />
+
+<!-- Grid column -->
+<hr class="w-100 clearfix d-md-none" />
+
+<!-- Grid column -->
+<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+  <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+  <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+  <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+  <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+  <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+</div>
+<!-- Grid column -->
+
+<!-- Grid column -->
+<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+  <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+
+  <!-- Facebook -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #3b5998"
+     href="#!"
+     role="button"
+     ><i class="fab fa-facebook-f"></i
+    ></a>
+
+  <!-- Twitter -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #55acee"
+     href="#!"
+     role="button"
+     ><i class="fab fa-twitter"></i
+    ></a>
+
+  <!-- Google -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #dd4b39"
+     href="#!"
+     role="button"
+     ><i class="fab fa-google"></i
+    ></a>
+
+  <!-- Instagram -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #ac2bac"
+     href="#!"
+     role="button"
+     ><i class="fab fa-instagram"></i
+    ></a>
+
+  <!-- Linkedin -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #0082ca"
+     href="#!"
+     role="button"
+     ><i class="fab fa-linkedin-in"></i
+    ></a>
+  <!-- Github -->
+  <a
+     class="btn btn-primary btn-floating m-1"
+     style="background-color: #333333"
+     href="#!"
+     role="button"
+     ><i class="fab fa-github"></i
+    ></a>
+</div>
+</div>
+<!--Grid row-->
+</section>
+<!-- Section: Links -->
+</div>
+<!-- Grid container -->
+
+<!-- Copyright -->
+<div
+class="text-center p-3"
+style="background-color: rgba(0, 0, 0, 0.2)"
+>
+© 2024 Copyright:
+<a class="text-white" href="https://mdbootstrap.com/"
+>abc</a
+>
+</div>
+
+<!-- Copyright -->
+</footer>
+<!-- Footer -->
+    
+</body>
+{% endblock %}
+
